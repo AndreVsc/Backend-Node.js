@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AndreVsc/Backend-Node.js#readme",
   "dependencies": {
+    "express": "^4.18.2",
     "npm": "^10.2.0"
   }
 }
