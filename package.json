@@ -1,0 +1,22 @@
+{
+  "name": "backend-node",
+  "version": "1.0.0",
+  "description": "node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreVsc/Backend-Node.js.git"
+  },
+  "author": "Andre Victor Soares",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndreVsc/Backend-Node.js/issues"
+  },
+  "homepage": "https://github.com/AndreVsc/Backend-Node.js#readme",
+  "dependencies": {
+    "npm": "^10.2.0"
+  }
+}
