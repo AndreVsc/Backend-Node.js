@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/',function(req,res){
-    res.send('Hello World');
+    res.send('Testando');
 });
 
 app.get('/test', function(req,res){
@@ -100,6 +100,7 @@ app.delete("/items/:id", function(req,res){
 //------------------------------------------------------------------------
 
 // Colocando aplicação online
+
 app.listen(3000 , function(){
     console.log("App running on http://localhost:3000");
 });
