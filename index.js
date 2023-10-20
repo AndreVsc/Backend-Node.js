@@ -12,4 +12,6 @@ app.get('/test', function(req,res){
 
 
 // Colocando aplicação online
-app.listen(3000);
+app.listen(3000 , function(){
+    console.log("App running on http://localhost:3000");
+});
