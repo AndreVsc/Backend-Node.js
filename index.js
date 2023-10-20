@@ -26,6 +26,13 @@ app.get("/items", function(req,res){
     res.send(items);
 });
 
+// READ by ID
+
+app.get("/items/:id", function(req,res){
+    const id = req.params.id-1;
+    res.send("Read by Id : "+id);
+});
+
 // CREATE 
 
 app.post("/items", function(req,res){
