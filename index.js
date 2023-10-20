@@ -16,7 +16,13 @@ app.get('/test', function(req,res){
 
 // Crud de lista e criaturas
 
-const items = ["Java","Android","Kotlin","Express","NestJs"];
+const items = [
+    {
+        "id":1,
+        "name":"Java",
+        "imadeUrl":"https://salvatore.academy/demon/1_java.png"
+    }
+];
 
 // -----------------------------------------------------------------------
 
@@ -38,10 +44,12 @@ app.get("/items/:id", function(req,res){
 app.post("/items", function(req,res){
     
     //  Extrair a informação do corpo da requisição
-    const item = req.body.name;
+    const nome = req.body.name;
 
     // Inserir item na lista
-    items.push(item);
+    items.map((item)=>{
+        item.name = nome;
+    })
     res.send("Item created sucessfully");
 
 })
@@ -49,11 +57,18 @@ app.post("/items", function(req,res){
 // UPDATE
 
 app.put("/items/:id", function(req,res){
-     const id = req.params.id-1;
+     const id = +req.params.id;
     
-     const newItem = req.body.name;
+     const newItem = req.body;
+    
+     const index = items.findIndex(function(item){
+        return item.id === id;
+     });
 
-     items[id] = newItem;
+     items[index] = {
+        ...newItem,
+        id,
+     }
 
      res.send("Item updated sucessfully");
 
@@ -63,9 +78,14 @@ app.put("/items/:id", function(req,res){
 // DELETE
 
 app.delete("/items/:id", function(req,res){
-    const id = req.params.id-1;
 
-    delete items[id];
+    const id = +req.params.id;
+
+    const index = items.findIndex(function(item){
+        return item.id === id;
+     });
+
+    delete items[index];
 
     res.send("Item deleted sucessfully")
 });
