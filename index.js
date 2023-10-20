@@ -23,7 +23,7 @@ const items = ["Java","Android","Kotlin","Express","NestJs"];
 // READ ALL 
 
 app.get("/items", function(req,res){
-    res.send(items);
+    res.send(items.filter(Boolean));
 });
 
 // READ by ID
@@ -43,6 +43,7 @@ app.post("/items", function(req,res){
     // Inserir item na lista
     items.push(item);
     res.send("Item created sucessfully");
+
 })
 
 // UPDATE
@@ -58,6 +59,16 @@ app.put("/items/:id", function(req,res){
 
 });
 
+
+// DELETE
+
+app.delete("/items/:id", function(req,res){
+    const id = req.params.id-1;
+
+    delete items[id];
+
+    res.send("Item deleted sucessfully")
+});
 
 
 //------------------------------------------------------------------------
