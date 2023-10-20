@@ -38,14 +38,25 @@ app.get("/items/:id", function(req,res){
 app.post("/items", function(req,res){
     
     //  Extrair a informação do corpo da requisição
-    const item = req.body.nome;
+    const item = req.body.name;
 
     // Inserir item na lista
     items.push(item);
     res.send("Item created sucessfully");
 })
 
-// 
+// UPDATE
+
+app.put("/items/:id", function(req,res){
+     const id = req.params.id-1;
+    
+     const newItem = req.body.name;
+
+     items[id] = newItem;
+
+     res.send("Item updated sucessfully");
+
+});
 
 
 
