@@ -44,15 +44,21 @@ app.get("/items/:id", function(req,res){
 app.post("/items", function(req,res){
     
     //  Extrair a informação do corpo da requisição
-    const nome = req.body.name;
+    const nome = req.body;
+
+    if(!nome || !nome.name || !nome.imageUrl){
+        return res.status(400).send({
+            message: "name & imageUrl are requerid."
+        });
+    }
 
     // Inserir item na lista
     items.map((item)=>{
-        item.name = nome;
-    })
+        item.name = nome.name;
+    });
     res.send("Item created sucessfully");
 
-})
+});
 
 // UPDATE
 
